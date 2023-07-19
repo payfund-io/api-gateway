@@ -20,9 +20,9 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "proto:install": "yarn add @payfund/grpc-proto",
-    "proto:authentication": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto.cmd -I=./node_modules/@payfund/grpc-proto/proto --ts_proto_out=src/modules/core/authentication/protobuf node_modules/@payfund/grpc-proto/proto/authentication.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
+    "proto:authenticationservice": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto.cmd -I=./node_modules/@payfund/grpc-proto/proto --ts_proto_out=src/modules/core/authenticationservice/protobuf node_modules/@payfund/grpc-proto/proto/authentication.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
     "proto:health": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto.cmd -I=./node_modules/@payfund/grpc-proto/proto --ts_proto_out=src/modules/common/health/protobuf node_modules/@payfund/grpc-proto/proto/health.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
-    "proto:all": "yarn proto:authentication & yarn proto:health"
+    "proto:all": "yarn proto:authenticationservice & yarn proto:health"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.8.14",
