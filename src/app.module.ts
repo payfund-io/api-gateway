@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { getEnvironment } from './configs/env.configs';
 import { HealthModule } from './modules/common/health/health.module';
-import { IdentificationServiceModule } from './modules/core/identificationservice/identificationservice.module';
+import { IdentificationServiceModule } from './modules/core/identification-service/identification-service.module';
 
 @Module({
   imports: [
