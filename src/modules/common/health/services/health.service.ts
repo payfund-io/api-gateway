@@ -24,7 +24,7 @@ export class HealthService {
   ) {}
 
   async check() {
-    const _services = [this.checkApiGateway(), this.checkAuthenticationService()];
+    const _services = [this.checkApiGateway(), this.checkIdentificationService()];
     const services = await map(_services, async (service) => {
       try {
         return () => service;
@@ -53,16 +53,16 @@ export class HealthService {
     return await this.http.pingCheck('API_GATEWAY', apiGatewayUrl);
   }
 
-  async checkAuthenticationService(): Promise<HealthIndicatorResult> {
-    const authenticationServiceUrl = this.configService.get<string>(
-      'microservices.authenticationService.url',
+  async checkIdentificationService(): Promise<HealthIndicatorResult> {
+    const identificationServiceUrl = this.configService.get<string>(
+      'microservices.identificationService.url',
     );
     return await this.grpc.checkService<GrpcOptions>(
-      'AUTHENTICATION_SERVICE',
+      'IDENTIFICATION_SERVICE',
       HEALTH_V1_PACKAGE_NAME,
       {
         timeout: 50000,
-        url: authenticationServiceUrl,
+        url: identificationServiceUrl,
         package: HEALTH_V1_PACKAGE_NAME,
         protoPath: join(
           'node_modules/@payfund/grpc-proto/proto/health.proto',
