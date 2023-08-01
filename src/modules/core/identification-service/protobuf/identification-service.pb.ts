@@ -6,26 +6,23 @@ export const protobufPackage = "identificationService.v1";
 
 export interface SignUpUserDTO {
   email: string;
+  phonenumber: string;
   password: string;
-  phoneNumber: string;
 }
 
 export interface SignUpResponse {
   id: string;
   email: string;
-  username: string;
 }
 
 export interface SignInUserDTO {
   email: string;
   password: string;
-  phoneNumber: string;
 }
 
 export interface SignInResponse {
   id: string;
   email: string;
-  username: string;
 }
 
 export const IDENTIFICATION_SERVICE_V1_PACKAGE_NAME = "identificationService.v1";

@@ -13,8 +13,8 @@ import { ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    TerminusModule,
-    HttpModule,
+    // TerminusModule,
+    // HttpModule,
     ClientsModule.registerAsync([
       {
         name: IDENTIFICATION_SERVICE_NAME,
@@ -24,9 +24,8 @@ import { ConfigService } from '@nestjs/config';
           options: {
             url: config.get<string>('microservices.identificationService.url'),
             package: IDENTIFICATION_SERVICE_V1_PACKAGE_NAME,
-            protoPath: join(
+            protoPath:
               'node_modules/@payfund/grpc-proto/proto/identification-service.proto',
-            ),
           },
         }),
       },
@@ -34,5 +33,6 @@ import { ConfigService } from '@nestjs/config';
   ],
   controllers: [IdentificationServiceController],
   providers: [IdentificationService],
+  exports: [IdentificationService],
 })
 export class IdentificationServiceModule {}

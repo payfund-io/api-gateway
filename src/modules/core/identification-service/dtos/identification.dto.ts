@@ -9,13 +9,6 @@ export class SignUpUserDTO {
   })
   email: string;
 
-  @IsNotEmpty({ message: 'username is required' })
-  @ApiProperty({
-    type: 'string',
-    description: 'username of user',
-  })
-  username: string;
-
   @IsNotEmpty({ message: 'phone number is required' })
   @ApiProperty({
     type: 'string',
